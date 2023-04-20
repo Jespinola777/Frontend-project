@@ -18,8 +18,8 @@ $.get(`https://valorant-api.com/v1/agents`, function (data) {
             
             $.get(`https://valorant-api.com/v1/agents/${value}`, function (data) {
                 console.log(data)
-                $body = $('body')
-                for(agent in data){
+                const $body = $('body')
+                for(const agent in data){
                    const agentInfo = data[agent];
                    console.log(agentInfo)
                    if(agentInfo.isPlayableCharacter===true){
@@ -33,10 +33,10 @@ $.get(`https://valorant-api.com/v1/agents`, function (data) {
                    
                     console.log(displayIcon)
                     const $div = $(".agent")
-                    $img = $("<img>").addClass("image").attr("src", portrait)
-                    $div.css({background: `linear-gradient(${gradient})` });
-                    $name = $('<p>').text(name).addClass("name")
-                    $p = $("<p>").text(description)
+                    const $img = $("<img>").addClass("image").attr("src", portrait)
+                    $(".agent-background").css({background: `linear-gradient(${gradient})` });
+                    const $name = $('<p>').text(name).addClass("name")
+                    const $p = $("<p>").text(description).addClass("summary")
                     $div.append($name)
                     $div.append($p)
                     $div.append($img)
@@ -47,5 +47,5 @@ $.get(`https://valorant-api.com/v1/agents`, function (data) {
            });
 
         });
-      }
+    }
 });
